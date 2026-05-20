@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Portfolio de Bruno (@brnodc), desenvolvedor Python especializado em DeFi, automação e yield tracking."
+  />
+
+  <title>brnodc | Python Developer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <style>
+    :root {
+      --bg-main: #f9f9f2;
+      --bg-soft: #fafaf5;
+      --bg-card: rgba(255, 255, 250, 0.82);
+      --text-main: #171717;
+      --text-muted: #626262;
+      --dark: #1e1e1e;
+      --dark-soft: #2a2a2a;
+      --border: rgba(30, 30, 30, 0.11);
+      --shadow: 0 24px 70px rgba(20, 20, 20, 0.08);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --transition: 220ms ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(42, 42, 42, 0.08), transparent 34rem),
+        linear-gradient(180deg, #f9f9f2 0%, #fafaf5 48%, #f5f5f0 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin-inline: auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(18px);
+      background: rgba(249, 249, 242, 0.78);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-content {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 1.1rem;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: linear-gradient(135deg, var(--dark), #4a4a4a);
+      box-shadow: 0 10px 24px rgba(30, 30, 30, 0.18);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .nav-github {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--dark);
+      color: #fff;
+      font-weight: 600;
+      transition:
+        transform var(--transition),
+        background var(--transition),
+        box-shadow var(--transition);
+    }
+
+    .nav-github:hover {
+      transform: translateY(-2px);
+      background: #000;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 1.35rem;
+      cursor: pointer;
+      color: var(--text-main);
+    }
+
+    .hero {
+      padding: 92px 0 76px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      margin-bottom: 22px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .pulse {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #21c55d;
+      box-shadow: 0 0 0 0 rgba(33, 197, 93, 0.58);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      70% {
+        box-shadow: 0 0 0 10px rgba(33, 197, 93, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(33, 197, 93, 0);
+      }
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      font-size: clamp(3.2rem, 8vw, 6.8rem);
+      line-height: 0.92;
+      letter-spacing: -0.08em;
+      margin-bottom: 20px;
+    }
+
+    .gradient-text {
+      color: transparent;
+      background: linear-gradient(135deg, #111, #3a3a3a 52%, #777);
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .hero-title {
+      font-size: clamp(1.1rem, 2.3vw, 1.55rem);
+      color: var(--dark-soft);
+      font-weight: 700;
+      margin-bottom: 14px;
+      letter-spacing: -0.025em;
+    }
+
+    .hero-description {
+      max-width: 620px;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        background var(--transition),
+        border-color var(--transition);
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--dark), #050505);
+      box-shadow: 0 18px 40px rgba(30, 30, 30, 0.18);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 24px 48px rgba(30, 30, 30, 0.25);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.46);
+      color: var(--dark);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      background: #fff;
+      border-color: rgba(30, 30, 30, 0.22);
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 250, 0.86), rgba(245, 245, 240, 0.62)),
+        radial-gradient(circle at top right, rgba(30, 30, 30, 0.18), transparent 18rem);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -30% -40% 10%;
+      height: 190px;
+      background: linear-gradient(135deg, transparent, rgba(30, 30, 30, 0.16));
+      filter: blur(30px);
+      pointer-events: none;
+    }
+
+    .code-window {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      border-radius: 22px;
+      background: #1f1f1f;
+      color: #f7f7f1;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+    }
+
+    .window-top {
+      height: 48px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #292929;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .dots {
+      display: flex;
+      gap: 7px;
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #bcbcbc;
+    }
+
+    .window-title {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.58);
+    }
+
+    .code-body {
+      padding: 22px;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: #e7e7df;
+      overflow-x: auto;
+    }
+
+    .code-body .muted {
+      color: #8c8c8c;
+    }
+
+    .code-body .key {
+      color: #fff;
+    }
+
+    .code-body .value {
+      color: #d7d7d0;
+    }
+
+    .status-panel {
+      position: relative;
+      z-index: 1;
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 250, 0.84);
+      border: 1px solid var(--border);
+      display: grid;
+      gap: 12px;
+    }
+
+    .status-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--text-muted);
+      font-size: 0.93rem;
+    }
+
+    .status-row strong {
+      color: var(--text-main);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(33, 197, 93, 0.1);
+      color: #167c3a;
+      font-size: 0.83rem;
+      font-weight: 800;
+    }
+
+    section {
+      padding: 78px 0;
+    }
+
+    .section-header {
+      max-width: 700px;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.04;
+      letter-spacing: -0.06em;
+      margin-bottom: 14px;
+    }
+
+    .section-description {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+    }
+
+    .about-card {
+      padding: 34px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(255, 255, 250, 0.88), rgba(245, 245, 240, 0.72));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .about-card p {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid var(--border);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.5rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 34px;
+      padding: 34px;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(135deg, rgba(249, 249, 242, 0.94), rgba(230, 230, 224, 0.68)),
+        radial-gradient(circle at right top, rgba(30, 30, 30, 0.14), transparent 28rem);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .project-visual {
+      min-height: 360px;
+      padding: 24px;
+      border-radius: 24px;
+      color: #fff;
+      background: linear-gradient(145deg, #2a2a2a, #111);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-visual::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -70px;
+      top: -70px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .project-icon {
+      position: relative;
+      z-index: 1;
+      width: 62px;
+      height: 62px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.1);
+      font-size: 1.9rem;
+    }
+
+    .terminal-card {
+      position: relative;
+      z-index: 1;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      font-family: Consolas, monospace;
+      font-size: 0.86rem;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .terminal-line + .terminal-line {
+      margin-top: 9px;
+    }
+
+    .project-content {
+      align-self: center;
+    }
+
+    .project-content h3 {
+      font-size: clamp(1.7rem, 3vw, 2.55rem);
+      line-height: 1.08;
+      letter-spacing: -0.055em;
+      margin-bottom: 18px;
+    }
+
+    .project-content p {
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 12px;
+      margin: 24px 0;
+      list-style: none;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      color: var(--text-muted);
+    }
+
+    .feature-list i {
+      margin-top: 4px;
+      color: var(--dark);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .skill-card {
+      min-height: 132px;
+      padding: 22px;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 44px rgba(20, 20, 20, 0.09);
+      border-color: rgba(30, 30, 30, 0.2);
+    }
+
+    .skill-card i {
+      font-size: 1.55rem;
+      margin-bottom: 14px;
+      color: var(--dark);
+    }
+
+    .skill-card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .skill-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .contact {
+      padding-bottom: 0;
+    }
+
+    .contact-panel {
+      padding: 46px;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      color: #fff;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.12), transparent 26rem),
+        linear-gradient(135deg, #2a2a2a 0%, #111 72%, #050505 100%);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .contact-panel h2 {
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.04;
+      letter-spacing: -0.06em;
+      margin-bottom: 12px;
+    }
+
+    .contact-panel p {
+      color: rgba(255, 255, 255, 0.68);
+      max-width: 640px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 0 17px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #fff;
+      font-weight: 700;
+      transition:
+        transform var(--transition),
+        background var(--transition);
+    }
+
+    .contact-link:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    footer {
+      padding: 24px 0;
+      color: rgba(255, 255, 255, 0.52);
+      background: #050505;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 700ms ease,
+        transform 700ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .about-card,
+      .project-card,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 68px;
+      }
+
+      .project-visual {
+        min-height: 300px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        top: 82px;
+        padding: 18px;
+        border-radius: 22px;
+        background: rgba(249, 249, 242, 0.96);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        flex-direction: column;
+        align-items: stretch;
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-github {
+        width: 100%;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 18vw, 5rem);
+      }
+
+      .hero-actions {
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card,
+      .about-card,
+      .contact-panel {
+        padding: 24px;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .container {
+        width: min(100% - 22px, 1120px);
+      }
+
+      .hero-card,
+      .project-card,
+      .about-card {
+        border-radius: 22px;
+      }
+
+      .code-body {
+        font-size: 0.78rem;
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="#home" class="logo" aria-label="Voltar ao início">
+        <span class="logo-mark">b</span>
+        <span>brnodc</span>
+      </a>
+
+      <button class="mobile-menu-btn" id="menuBtn" aria-label="Abrir menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#projeto">Projeto</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li>
+            <a
+              class="nav-github"
+              href="https://github.com/brnodc/discord-bot-yt-ex"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-github"></i>
+              GitHub
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">
+            <span class="pulse"></span>
+            Bot automation for DeFi protocols
+          </div>
+
+          <h1>
+            Bruno<br />
+            <span class="gradient-text">@brnodc</span>
+          </h1>
+
+          <p class="hero-title">
+            Python Developer • DeFi Automation • Yield Tracking
+          </p>
+
+          <p class="hero-description">
+            Desenvolvo automações em Python para monitorar oportunidades em DeFi,
+            rastrear yields e transformar dados on-chain em alertas úteis dentro
+            do Discord.
+          </p>
+
+          <div class="hero-actions">
+            <a
+              class="btn btn-primary"
+              href="https://github.com/brnodc/discord-bot-yt-ex"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-github"></i>
+              Ver projeto no GitHub
+            </a>
+
+            <a class="btn btn-secondary" href="#contato">
+              Entrar em contato
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero-card reveal" aria-label="Status visual do bot">
+          <div class="code-window">
+            <div class="window-top">
+              <div class="dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+              <span class="window-title">yield_tracker.py</span>
+            </div>
+
+            <pre class="code-body"><code><span class="muted"># Discord Yield Tracker</span>
+bot = {
+  <span class="key">"status"</span>: <span class="value">"online"</span>,
+  <span class="key">"protocols"</span>: [<span class="value">"Aave"</span>, <span class="value">"Compound"</span>],
+  <span class="key">"alerts"</span>: <span class="value">"Discord"</span>,
+  <span class="key">"stack"</span>: [<span class="value">"Python"</span>, <span class="value">"Web3.py"</span>]
+}
+
+track_yields(bot)</code></pre>
+          </div>
+
+          <div class="status-panel">
+            <div class="status-row">
+              <span>Status do bot</span>
+              <span class="status-badge">
+                <span class="pulse"></span>
+                Online
+              </span>
+            </div>
+
+            <div class="status-row">
+              <span>Última verificação</span>
+              <strong>há 2 min</strong>
+            </div>
+
+            <div class="status-row">
+              <span>Canal de alertas</span>
+              <strong>Discord</strong>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-kicker">Sobre mim</p>
+          <h2 class="section-title">Python aplicado a automação, dados on-chain e DeFi.</h2>
+          <p class="section-description">
+            Meu foco é construir ferramentas simples, confiáveis e úteis para acompanhar
+            protocolos, taxas, retornos e eventos relevantes no ecossistema DeFi.
+          </p>
+        </div>
+
+        <div class="about-card reveal">
+          <p>
+            Sou desenvolvedor Python com foco em automação, integrações com APIs,
+            protocolos DeFi e rastreamento de yields. Meu principal projeto público é
+            um bot para Discord que monitora Yield Tokens e ajuda usuários a acompanhar
+            oportunidades e mudanças de APY/APR em tempo quase real.
+          </p>
+
+          <div class="about-stats">
+            <div class="stat">
+              <strong>Python</strong>
+              <span>Core stack</span>
+            </div>
+            <div class="stat">
+              <strong>DeFi</strong>
+              <span>Yield tracking</span>
+            </div>
+            <div class="stat">
+              <strong>Discord</strong>
+              <span>Alertas automatizados</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projeto">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-kicker">Projeto em destaque</p>
+          <h2 class="section-title">Discord Bot – Yield Tracker DeFi</h2>
+          <p class="section-description">
+            Um bot criado para acompanhar yields, tokens e oportunidades em protocolos
+            DeFi diretamente pelo Discord.
+          </p>
+        </div>
+
+        <article class="project-card reveal">
+          <div class="project-visual">
+            <div class="project-icon">
+              <i class="fa-brands fa-discord"></i>
+            </div>
+
+            <div class="terminal-card">
+              <div class="terminal-line">$ python bot.py</div>
+              <div class="terminal-line">✓ Connected to Discord Gateway</div>
+              <div class="terminal-line">✓ Fetching DeFi yield data</div>
+              <div class="terminal-line">✓ Alert sent: APY threshold reached</div>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <h3>Monitoramento de Yield Tokens com alertas inteligentes.</h3>
+
+            <p>
+              O bot monitora tokens de yield, métricas como APY/APR e dados de
+              protocolos DeFi. Ele pode consumir APIs REST, consultar informações
+              on-chain via Web3.py e enviar alertas automatizados para canais do Discord.
+            </p>
+
+            <ul class="feature-list">
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span>Automação em Python para coleta e processamento de dados DeFi.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span>Integração com Discord.py para comandos, mensagens e alertas.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span>Estrutura pronta para APIs blockchain, Web3.py e persistência local.</span>
+              </li>
+            </ul>
+
+            <a
+              class="btn btn-primary"
+              href="https://github.com/brnodc/discord-bot-yt-ex"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-github"></i>
+              Ver projeto
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-kicker">Tecnologias</p>
+          <h2 class="section-title">Stack focada em automação, integrações e DeFi.</h2>
+          <p class="section-description">
+            Ferramentas que uso para construir bots, consultar dados e criar sistemas
+            leves de monitoramento.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card reveal">
+            <i class="fa-brands fa-python"></i>
+            <h3>Python</h3>
+            <p>Scripts, bots, automações e processamento de dados.</p>
+          </div>
+
+          <div class="skill-card reveal">
+            <i class="fa-solid fa-link"></i>
+            <h3>Web3.py</h3>
+            <p>Consulta de contratos, redes blockchain e dados on-chain.</p>
+          </div>
+
+          <div class="skill-card reveal">
+            <i class="fa-brands fa-discord"></i>
+            <h3>Discord.py</h3>
+            <p>Bots, comandos, eventos e alertas em servidores Discord.</p>
+          </div>
+
+          <div class="skill-card reveal">
+            <i class="fa-solid fa-server"></i>
+            <h3>APIs REST</h3>
+            <p>Integrações com serviços externos e fontes de dados DeFi.</p>
+          </div>
+
+          <div class="skill-card reveal">
+            <i class="fa-solid fa-database"></i>
+            <h3>SQLite / PostgreSQL</h3>
+            <p>Persistência de dados, histórico de yields e configurações.</p>
+          </div>
+
+          <div class="skill-card reveal">
+            <i class="fa-brands fa-git-alt"></i>
+            <h3>Git</h3>
+            <p>Versionamento, organização de projeto e fluxo com GitHub.</p>
+          </div>
+
+          <div class="skill-card reveal">
+            <i class="fa-solid fa-chart-line"></i>
+            <h3>Yield Tracking</h3>
+            <p>Monitoramento de APY, APR, tokens e oportunidades.</p>
+          </div>
+
+          <div class="skill-card reveal">
+            <i class="fa-solid fa-coins"></i>
+            <h3>DeFi</h3>
+            <p>Conhecimentos em Uniswap, Compound, Aave e protocolos similares.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="contact">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div class="contact-grid">
+            <div>
+              <p class="section-kicker">Contato</p>
+              <h2>Vamos construir automações DeFi mais inteligentes?</h2>
+              <p>
+                Acompanhe meus projetos no GitHub ou entre em contato para conversar
+                sobre bots, automação em Python e monitoramento de yields.
+              </p>
+            </div>
+
+            <div class="contact-links">
+              <a
+                class="contact-link"
+                href="https://github.com/brnodc"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fa-brands fa-github"></i>
+                GitHub
+              </a>
+
+              <a
+                class="contact-link"
+                href="https://www.linkedin.com/in/brnodc"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fa-brands fa-linkedin"></i>
+                LinkedIn
+              </a>
+
+              <a
+                class="contact-link"
+                href="mailto:brunodanielc.lima@gmail.com"
+              >
+                <i class="fa-solid fa-envelope"></i>
+                Email
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="container">
+          © <span id="year"></span> brnodc. Python Developer • DeFi Automation • Yield Tracking.
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    const menuBtn = document.querySelector("#menuBtn");
+    const navLinks = document.querySelector("#navLinks");
+    const navItems = document.querySelectorAll(".nav-links a");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+
+      const icon = menuBtn.querySelector("i");
+      icon.classList.toggle("fa-bars");
+      icon.classList.toggle("fa-xmark");
+    });
+
+    navItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+
+        const icon = menuBtn.querySelector("i");
+        icon.classList.add("fa-bars");
+        icon.classList.remove("fa-xmark");
+      });
+    });
+
+    document.querySelector("#year").textContent = new Date().getFullYear();
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+      }
+    );
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+</body>
+</html>
